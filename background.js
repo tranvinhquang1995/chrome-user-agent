@@ -1,6 +1,5 @@
-function applyWindowsHeaders() {
-  const realUA = navigator.userAgent;
-  const winUA = realUA.replace(/\([^)]+\)/, "(Windows NT 10.0; Win64; x64)");
+function applyWindowsUA() {
+  const winUA = navigator.userAgent.replace(/\([^)]+\)/, "(Windows NT 10.0; Win64; x64)");
 
   chrome.declarativeNetRequest.updateDynamicRules({
     removeRuleIds: [1],
@@ -11,8 +10,7 @@ function applyWindowsHeaders() {
         action: {
           type: "modifyHeaders",
           requestHeaders: [
-            { header: "User-Agent", operation: "set", value: winUA },
-            { header: "Sec-CH-UA-Platform", operation: "set", value: "\"Windows\"" }
+            { header: "User-Agent", operation: "set", value: winUA }
           ]
         },
         condition: {
@@ -28,5 +26,5 @@ function applyWindowsHeaders() {
   });
 }
 
-chrome.runtime.onInstalled.addListener(applyWindowsHeaders);
-chrome.runtime.onStartup.addListener(applyWindowsHeaders);
+chrome.runtime.onInstalled.addListener(applyWindowsUA);
+chrome.runtime.onStartup.addListener(applyWindowsUA);
