@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <style>
+    body {
+      width: 230px;
+      margin: 0;
+      padding: 12px;
+      font-family: system-ui, -apple-system, sans-serif;
+      background: #1e1e2e;
+      color: #cdd6f4;
+    }
+    h3 {
+      margin: 0 0 10px;
+      font-size: 14px;
+      font-weight: 600;
+      color: #ffffff;
+    }
+    .option {
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      padding: 8px 10px;
+      margin-bottom: 8px;
+      border: 1px solid #313244;
+      border-radius: 6px;
+      cursor: pointer;
+      background: #252536;
+      transition: border-color 0.15s, background 0.15s;
+    }
+    .option:hover {
+      border-color: #585b70;
+    }
+    .option.active {
+      border-color: #89b4fa;
+      background: #2b3048;
+    }
+    .option input {
+      margin-top: 2px;
+      cursor: pointer;
+    }
+    .title {
+      font-size: 13px;
+      font-weight: 600;
+      display: block;
+    }
+    .desc {
+      font-size: 11px;
+      color: #a6adc8;
+      margin-top: 2px;
+      display: block;
+    }
+    #status {
+      font-size: 11px;
+      color: #a6e3a1;
+      min-height: 15px;
+      margin-top: 4px;
+    }
+  </style>
+</head>
+<body>
+  <h3>Chọn chế độ OS</h3>
+
+  <label class="option" id="opt-windows">
+    <input type="radio" name="osMode" value="windows" />
+    <div>
+      <span class="title">Windows</span>
+      <span class="desc">Spoof UA, Platform &amp; JS navigator</span>
+    </div>
+  </label>
+
+  <label class="option" id="opt-linux">
+    <input type="radio" name="osMode" value="linux" />
+    <div>
+      <span class="title">Linux (Full Headers)</span>
+      <span class="desc">Giữ Linux, bổ sung OS/Device/Browser</span>
+    </div>
+  </label>
+
+  <div id="status"></div>
+  <script src="popup.js"></script>
+</body>
+</html>
